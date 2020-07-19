@@ -38,7 +38,26 @@ function ATM (GEL, USD){
 		}
 		return false;
 	};
+	this.askCurrency = function (cardNumber, currency){
+		for (let currency of cards){
+			if (card.number==cardNumber){
+				return currency===card.currency;
+			}
+		}
+	};
+
 }
 
 
 const objATM = new ATM (100000, 100000);
+
+function cashOut (){
+	let customerCard = prompt("Please enter your card number:")
+	let customerPin = prompt("Please enter PIN:");
+	let customerCurrencyChoice = prompt("Please enter currency:");
+	let customerCashSum = prompt("How much to withdraw?");
+
+
+
+}
+
