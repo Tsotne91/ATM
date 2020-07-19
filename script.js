@@ -38,10 +38,10 @@ function ATM (GEL, USD){
 		}
 		return false;
 	};
-	this.askCurrency = function (cardNumber, currency){
-		for (let currency of cards){
+	this.isValidCurrency = function (cardNumber, currency){
+		for (let card of cards){
 			if (card.number==cardNumber){
-				return currency===card.currency;
+				;
 			}
 		}
 	};
