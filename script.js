@@ -90,14 +90,12 @@ function cashOut (){
 	let customerCashSum = parseInt(prompt("How much to withdraw?"));
 	if (!objATM.isValidAmount(customerCard, customerCurrencyChoice, customerCashSum)){
 		alert("Funds not available in your account");
-	}; 
+	} 
 	else if (!objATM.isEnoughMoney(customerCurrencyChoice, customerCashSum)){
 		alert("Funds not available in the ATM")
 
 	}
-	else {
-		alert("Please withdraw" + customerCashSum + customerCurrencyChoice + "from the ATM")
-	}
+	else alert("Please withdraw" + customerCashSum + customerCurrencyChoice + "from the ATM")
 
 
 };
