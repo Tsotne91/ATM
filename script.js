@@ -47,16 +47,17 @@ function ATM (GEL, USD){
 			}
 		}
 	};
-	this.haveEnoughFunds = function (cardNumber, funds){
-		for (let card of cards){
-			if (card.number==cardNumber){
-				return funds==card.//what the hell
-
+	this.isValidAmount = function(cardNumber, currency, amount) {
+			for(let card of cards) {
+				if(card.number == cardNumber) {
+					return card[currency] >= amount;
+				}
 			}
 		}
+
+	this.isEnoughMoney = function(currency, amount) {
+		return this[currency] >= amount;
 	}
-
-
 
 }
 
@@ -87,9 +88,16 @@ function cashOut (){
 	}
 
 	let customerCashSum = parseInt(prompt("How much to withdraw?"));
-	if (){
+	if (!objATM.isValidAmount(customerCard, customerCurrencyChoice, customerCashSum)){
 		alert("Funds not available in your account");
 	}; 
+	else if (!objATM.isEnoughMoney(customerCurrencyChoice, customerCashSum)){
+		alert("Funds not available in the ATM")
+
+	}
+	else {
+		alert("Please withdraw" + customerCashSum + customerCurrencyChoice + "from the ATM")
+	}
 
 
 };
