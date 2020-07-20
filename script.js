@@ -48,7 +48,7 @@ function ATM (GEL, USD){
 		}
 	};
 	this.haveEnoughFunds = function (cardNumber, funds){
-		for (let funds of cards){
+		for (let card of cards){
 			if (card.number==cardNumber){
 				return funds==card.//what the hell
 
