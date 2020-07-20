@@ -64,7 +64,7 @@ function cashOut (){
 	}
 
 
-	let customerPin = prompt("Please enter PIN:");
+	let customerPin = parseInt(prompt("Please enter PIN:"));
 	// objATM.isValidPin(customerPin);
 	if (!objATM.isValidPin(customerCard, customerPin)) {
 		return alert ("Invalid PIN")
@@ -72,8 +72,11 @@ function cashOut (){
 
 
 
-	let customerCurrencyChoice = prompt("Please enter currency:");
-	objATM.isValidCurrency(customerCurrencyChoice);
+	let customerCurrencyChoice = prompt("Enter currency between GEL or USD:");
+	// objATM.isValidCurrency(customerCurrencyChoice);
+	if (!objATM.isValidCurrency (customerCard, customerCurrencyChoice)) {
+		return alert ("Invalid currency!")
+	}
 
 	let customerCashSum = parseInt(prompt("How much to withdraw?"));
 	if (customerCashSum>objATM.cards[customerCurrencyChoice]){
