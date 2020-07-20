@@ -47,6 +47,14 @@ function ATM (GEL, USD){
 			}
 		}
 	};
+	this.haveEnoughFunds = function (cardNumber, funds){
+		for (let funds of cards){
+			if (card.number==cardNumber){
+				return funds==card.//what the hell
+
+			}
+		}
+	}
 
 
 
@@ -79,7 +87,7 @@ function cashOut (){
 	}
 
 	let customerCashSum = parseInt(prompt("How much to withdraw?"));
-	if (customerCashSum>objATM.cards[customerCurrencyChoice]){
+	if (){
 		alert("Funds not available in your account");
 	}; 
 
