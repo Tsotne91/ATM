@@ -2,7 +2,8 @@ function ATM (GEL, USD){
 
 	this.GEL = GEL;
 	this.USD = USD;
-	this.cards = [
+
+	const cards = [
 		{
 			number: "0000 1111 2222 3333",
 			pin: 1111,
@@ -38,26 +39,48 @@ function ATM (GEL, USD){
 		}
 		return false;
 	};
+
 	this.isValidCurrency = function (cardNumber, currency){
 		for (let card of cards){
 			if (card.number==cardNumber){
-				;
+				return card.hasOwnProperty(currency);
 			}
 		}
 	};
+
+
 
 }
 
 
 const objATM = new ATM (100000, 100000);
 
+
 function cashOut (){
 	let customerCard = prompt("Please enter your card number:")
+	// objATM.isValidCardNumber(customerCard);
+	if (!objATM.isValidCardNumber(customerCard)) {
+		return alert ("Card is not valid!")
+	}
+
+
 	let customerPin = prompt("Please enter PIN:");
+	// objATM.isValidPin(customerPin);
+	if (!objATM.isValidPin(customerCard, customerPin)) {
+		return alert ("Invalid PIN")
+	}
+
+
+
 	let customerCurrencyChoice = prompt("Please enter currency:");
-	let customerCashSum = prompt("How much to withdraw?");
+	objATM.isValidCurrency(customerCurrencyChoice);
+
+	let customerCashSum = parseInt(prompt("How much to withdraw?"));
+	if (customerCashSum>objATM.cards[customerCurrencyChoice]){
+		alert("Funds not available in your account");
+	}; 
 
 
+};
 
-}
-
+cashOut();
